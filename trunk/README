@@ -1,0 +1,16 @@
+$Id: $
+
+Structura:
+trunk
+    \_ nume-proiect1
+        \_ structura directoare proiect 1
+    \_ nume-proiect2
+        \_ structura directoare proiect 2
+
+acces anonim:
+svn checkout svn://svn.berlios.de/rwd/trunk/nume-proiect1
+
+docs:
+http://developer.berlios.de/docman/display_doc.php?docid=394&group_id=2
+http://svnbook.red-bean.com/
+
