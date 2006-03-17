@@ -1,0 +1,51 @@
+$Id$
+
+1. *nix-like end-of-file
+        str_replace('\r\n','\n', FISIER);
+        
+2. 4 spatii, nu TAB!
+        str_replace('\t','    ', FISIER);
+
+3. Acolade sau paranteze pe acelasi rand:
+
+    ASA NU:
+
+    function foo()
+    {
+
+    }
+    
+    if (TRUE)
+    {
+
+    }
+    
+    ASA DA:
+
+    function foo() {
+        
+    }
+
+    if (TRUE) {
+        
+    }
+    
+4. Fara _ in numele clasei.
+
+DE TINUT MINTE:
+5. Acoladele la if, foreach, while... nu sunt sexy, dar ajuta foarte mult.
+
+    ASA NU:
+    foreach($foo as $bar) if ($bar->getBaz()=='bubu') break;
+
+    ASA DA:
+    foreach($foo as $bar) {
+        if ($bar->getBaz()=='bubu') {
+            break;
+        }
+    }
+
+6. Dupa 80-85 de caractere pe un rand, apasa odata enter.    
+
+7. 
+
