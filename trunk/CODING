@@ -32,8 +32,16 @@ $Id$
     
 4. Fara _ in numele clasei.
 
+5. Egal Spatiu.
+    
+    ASA DA:
+    $text = 'foo';
+    
+    ASA NU:
+    $text= 'foo';
+
 DE TINUT MINTE:
-5. Acoladele la if, foreach, while... nu sunt sexy, dar ajuta foarte mult.
+6. Acoladele la if, foreach, while... nu sunt sexy, dar ajuta foarte mult.
 
     ASA NU:
     foreach($foo as $bar) if ($bar->getBaz()=='bubu') break;
@@ -45,7 +53,9 @@ DE TINUT MINTE:
         }
     }
 
-6. Dupa 80-85 de caractere pe un rand, apasa odata enter.    
+7. Dupa 80-85 de caractere pe un rand, apasa odata enter.
 
-7. 
+8. phpDocumentor comments style
+
+9.
 
