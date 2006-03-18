@@ -1,0 +1,2 @@
+-- $Id: medick.php 379 2006-03-18 17:36:03Z aurelian $
+-- Database Schema for shop project
