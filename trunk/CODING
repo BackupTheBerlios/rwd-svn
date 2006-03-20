@@ -1,5 +1,7 @@
 $Id$
 
+0. just testing svn... by Filip
+
 1. *nix-like end-of-file
         str_replace('\r\n','\n', FISIER);
         
