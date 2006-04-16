@@ -12,10 +12,10 @@ $name= isset($argv[2]) ? strtolower($argv[2]) : exit($argv[0] . " needs a " . $a
   
 switch ($type) {
     case "controller":
-        generate_controller($name, '/wwwroot/rwd/trunk/shop');
+        generate_controller($name, '/wwwroot/rwd/trunk/medickart');
         break;
     case "model":
-        generate_model($name, '/wwwroot/rwd/trunk/shop');
+        generate_model($name, '/wwwroot/rwd/trunk/medickart');
         break;
     default:
         exit(main_banner($argv[0]));

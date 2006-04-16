@@ -1,0 +1,27 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+     <head>
+         <title>admin</title>
+         <base href="<?=$__server;?><?=$__base;?>/" />
+         <link rel="stylesheet" href="stylesheet/medickart.css" />
+         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+     </head>
+     <body>
+        <div id="container">
+            <div id="header">Admin Area</div>
+            <div id="sidebar">
+                <div class="box">
+                    <div class="box-heading">Sectiuni</div>
+                    <div class="box-contents">
+                        <ul class="side-nav">
+                            <li><a href="<?=URL::create('admin');?>">Admin Home</a>
+                            <li><a href="<?=URL::create('users');?>">User Management</a></li>
+                            <li><a href="<?=URL::create('publishers');?>">Publishers</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div id="content"><?=$content_for_layout;?></div>
+            <div id="footer">The footer</div>
+        </div>
+     </body>
+</html>
