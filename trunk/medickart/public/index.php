@@ -12,7 +12,7 @@ include_once('/wwwroot/medick/trunk/boot.php');
 // and environment to load
 $d= new Dispatcher(
           ContextManager::load(
-            '/wwwroot/rwd/trunk/shop/conf/shop.xml',
+            '/wwwroot/rwd/trunk/medickart/conf/shop.xml',
             'localhost')
         );
 $d->dispatch();
