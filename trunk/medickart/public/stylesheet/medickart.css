@@ -27,6 +27,7 @@ body {
 #content {
     padding:20px 20px 5px 20px;
     margin-left:200px;
+    border-left: 2px solid #555;
 }
 
 #sidebar {
@@ -52,11 +53,7 @@ a:hover {
 	text-decoration:underline;
 }
 
-.box {
-
-    
-    
-}
+.box {      }
 
 .box-heading {
     background-color: #C24A4B;
@@ -65,10 +62,53 @@ a:hover {
     font-size: 1.4em;
     text-align: center;
     padding: 0.8em;
-    
 }
+
+.box-contents {     }
 
 .side-nav li {
     list-style-type:none;
     padding:0.1em 0;
 }
+
+/* forms */
+
+fieldset {
+    border: none;
+}
+
+legend {
+    font-weight : bold;
+    color : #333;
+    margin : 0;
+    padding : 0.5em;
+}
+
+label {
+    display : block;
+}
+
+fieldset dd input {
+	width: 200px;
+	border : 1px solid #900;
+	padding : 1px;
+}
+	
+fieldset dd select {
+	font-size : 100%;
+	width: 200px;
+	border : 1px solid #900;
+	padding : 1px;
+}
+
+input {
+    margin: 2px;
+}
+
+/* medick validation */
+div.fieldWithErrors {
+    background-color: red;
+    display: table;
+    padding: 2px;
+}
+

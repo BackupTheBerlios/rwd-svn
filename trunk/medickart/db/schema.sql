@@ -142,13 +142,16 @@ CREATE TABLE `publishers` (
 
 -- 
 -- {{{ Table structure for table `users`
+-- role tinyint, este 0 ptr. super admin -> are access la zona de administrare sau 1 ptr. normal -> alte chestii.
+-- last_login este null si va fi actualizat la primul login. mai tarziu, o sa validam userii noi prin mail si o sa folosim acest NULL
 
 CREATE TABLE `users` (
   `id`          INT     ( 10 )  unsigned NOT NULL auto_increment,
-  `username`    VARCHAR ( 255 )          NOT NULL,
-  `password`    VARCHAR ( 32 )           NOT NULL,
-  `email`       VARCHAR ( 255 )          NOT NULL,
-  `last_login`  TIMESTAMP                NOT NULL default CURRENT_TIMESTAMP,
+  `name`        VARCHAR ( 255 )          NOT NULL,
+  `pass`        VARCHAR ( 32 )           NOT NULL,
+  `mail`        VARCHAR ( 255 )          NOT NULL,
+  `role`        TINYINT (  1  )          NOT NULL,
+  `last_login`  TIMESTAMP                    NULL,
   PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 

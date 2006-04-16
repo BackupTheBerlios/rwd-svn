@@ -1,1 +1,24 @@
-UsersController#index
+<h2>UsersController#index</h2>
+
+<!-- $Id: -->
+
+
+<? if ($users->size()!=0):?>
+    <? foreach ($users as $user): ?>
+        <a href="<?=URL::create('users', 'edit', array('id'=>$user->id));?>">Edit</a> / 
+        <a href="<?=URL::create('users', 'delete', array('id'=>$user->id));?>">Delete</a> --- 
+        <b>Name:</b> <?=$user->name;?> / 
+        <b>Role:</b> <?=UCHelper::role_to_human($user->role);?>
+        <? if ($user->last_login !== NULL): ?>
+            / <b>Last Login:</b> <?=UCHelper::last_login_to_human($user->last_login);?>
+        <? endif; ?>
+        <br />
+    <? endforeach; ?>
+<? else: ?>
+    No users
+<? endif; ?>
+
+<hr />
+
+<a href="<?=URL::create('users','add');?>">Add a new User</a>
+

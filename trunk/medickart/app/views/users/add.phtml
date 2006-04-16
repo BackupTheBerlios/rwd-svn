@@ -1,1 +1,55 @@
-UsersController#add
+<!-- $Id$ -->
+<form action="<?=URL::create('users','create');?>" method="post">
+  <fieldset>
+    <legend>Add User</legend>
+
+    <?=ActiveRecordHelper::error_messages_for($user);?>
+    <dl>
+        <dt>
+            <label for="user_name">Name:</label>
+         </dt>
+        <dd><?=FormHelper::text_field($user, 'name', array('size'=>35));?></dd>
+    </dl>
+
+    <dl>
+        <dt>
+            <label for="user_password">Password:</label>
+        </dt>
+        <dd><?=FormHelper::password_field($user,'pass', array('size'=>35));?></dd>
+    </dl>
+
+
+    <dl>
+        <dt>
+            <label for="retype_password">Re-Type Password:</label>
+        </dt>
+        <dd>
+            <input type="passrord" name="retypedpass" id="retype_password" />
+        <!--<?=FormHelper::password_field($user,'retypepass', array('size'=>35));?>-->
+        </dd>
+    </dl>
+
+
+    <dl>
+        <dt>
+            <label for="user_email">Email:</label>
+        </dt>
+        <dd><?=FormHelper::text_field($user,'mail', array('size'=>35));?></dd>
+    </dl>
+    <dl>
+        <dt>
+            <label for="user_role">Role:</label>
+        </dt>    
+        <dd>
+            <select id="user_role">
+                <option value="0" <?=$user->role===0 ? 'selected' : '' ?>>Admin</option>
+                <option value="1" <?=$user->role===1 ? 'selected' : '' ?>>Normal User</option>
+            </select>
+        </dd>
+    </dl>
+
+    
+    <div><?=Form::submit('submit', 'Submit');?></div>
+  </fieldset>
+</form>
+

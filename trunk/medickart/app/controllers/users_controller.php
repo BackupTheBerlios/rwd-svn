@@ -16,22 +16,36 @@ class UsersController extends ApplicationController {
     /**
      * Afiseaza toti utilizatori din sistem
      */ 
-    public function index() {    }
+    public function index() {
+        $this->users= User::find();
+    }
 
     /**
      * Afiseaza formularul ptr. adaugarea unui nou utilizator
      */ 
-	public function add() {    }
+	public function add() {
+        $this->user = new User();
+    }
 
     /**
      * Salveaza un nou utilizator in baza de date
      */ 
-    public function create() {    }
+    public function create() {
+        $this->user= new User($this->request->getParameter('user'));
+        if ($this->user->save() === FALSE) {
+            $this->render('add');
+        } else {
+            $this->flash('notice', '<em>' . $this->user->name . '</em> created');
+            $this->redirect_to('index');
+        }        
+    }
 
     /**
      * Afizeaza formularul pentru editarea unui utilizator
      */ 
-	public function edit() {    }
+	public function edit() {
+        $this->user= User::find($this->request->getParameter('id'));
+    }
 
     /**
      * Actualizeaza un utilizator in baza de date

@@ -8,6 +8,8 @@
  */
 class ApplicationController extends ActionController {
 
+    protected $models= array('user');
+    
     protected function authenticate() {
         return TRUE;
     }
