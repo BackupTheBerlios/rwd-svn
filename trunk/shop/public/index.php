@@ -3,7 +3,7 @@
 
 // 
 // This file is part of shop project
-// auto-generated on 2006 Mar 19 00:16:26 with medick version: 0.2.2-svn
+// auto-generated on 2006 Apr 16 11:13:18 with medick version: 0.2.3-svn
 // 
 
 // complete path to medick boot.php file.

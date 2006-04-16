@@ -20,13 +20,13 @@ switch ($type) {
     default:
         exit(main_banner($argv[0]));
 }  
-exit ("\nMedick (\$v: 0.2.2-svn) [ DONE ].\n");
+exit ("\nMedick (\$v: 0.2.3-svn) [ DONE ].\n");
 // }}}
 
 // {{{ main_banner
 function main_banner($script_name) {
     $buffer =<<<EOBANNER
-Medick Generator 0.2.2-svn 
+Medick Generator 0.2.3-svn 
 (c) 2005-2006 Oancea Aurelian, see LICENSE file for copyright details.
  
      Use one of controller or model:
