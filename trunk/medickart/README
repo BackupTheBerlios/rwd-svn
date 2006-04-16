@@ -1,5 +1,11 @@
 $Id$
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-README file for ``shop" sample
+README file for ``medickart" sample
+
+h3. Instalare
+
+medickart necesita versiunea medick din svn:
+
+svn checkout svn://svn.berlios.de/medick medick
 
