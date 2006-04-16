@@ -3,6 +3,7 @@
   <fieldset>
     <legend>Edit User</legend>
     <?=ActiveRecordHelper::error_messages_for($user);?>
+    <input type="hidden" name="id" value="<?=$user->id;?>" />
     <dl>
         <dt><label for="user_name">Name:</label></dt>
         <dd><?=FormHelper::text_field($user, 'name', array('size'=>35));?></dd>
@@ -13,23 +14,45 @@
     </dl>
     <dl>
         <dt><label for="user_role">Role:</label></dt>
-        <dd>
-            <select id="user_role">
+        <dd><?=UCHelper::role_to_select($user->role);?></dd>
+        <!--
+            <select id="user_role" name="user[role]">
                 <option value="0" <?=$user->role===0 ? 'selected' : '' ?>>Admin</option>
                 <option value="1" <?=$user->role===1 ? 'selected' : '' ?>>Normal User</option>
             </select>
         </dd>
+        -->
     </dl>
     <div><?=Form::submit('submit', 'Save');?></div>
   </fieldset>
 </form>
+
 <hr />
+
 <form action="<?=URL::create('users', 'change_password');?>" method="post">
     <fieldset>
         <legend>Change Password</legend>
-        <dl><dt><label for="current_password">Current Password: </label></dt><dd><input id="current_password" type="password" name="curent_password"/></dd></dl>
-        <dl><dt><label for="new_password">New Password: </label></dt><dd><input id="new_password" type="password" name="new_password"/></dd></dl>
-        <dl><dt><label for="retype_password">Re-type Password: </label></dt><dd><input id="retype_password" type="password" name="retype_password"/></dd></dl>
+        <input type="hidden" name="id" value="<?=$user->id;?>" />
+        <dl>
+            <dt>
+                <label for="current_password">Current Password: </label>
+            </dt>
+            <dd>
+                <input id="current_password" type="password" name="curent_password"/>
+            </dd>
+        </dl>
+
+        <dl>
+            <dt>
+                <label for="new_password">New Password: </label></dt>
+            <dd><input id="new_password" type="password" name="new_password"/></dd>
+        </dl>
+        
+        <dl>
+            <dt>
+                <label for="retype_password">Re-type Password: </label></dt>
+            <dd><input id="retype_password" type="password" name="retype_password"/></dd>
+        </dl>
         <div><?=Form::submit('submit', 'Change');?></div>
     </fieldset>
 </form>

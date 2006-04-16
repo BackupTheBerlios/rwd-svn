@@ -32,7 +32,10 @@ class UsersController extends ApplicationController {
      */ 
     public function create() {
         $this->user= new User($this->request->getParameter('user'));
+        $this->user->repass = $this->request->getParameter('repass');
         if ($this->user->save() === FALSE) {
+            // reset passwds?
+            $this->user->repass=$this->user->pass=NULL;
             $this->render('add');
         } else {
             $this->flash('notice', '<em>' . $this->user->name . '</em> created');
@@ -50,12 +53,39 @@ class UsersController extends ApplicationController {
     /**
      * Actualizeaza un utilizator in baza de date
      */ 
-	public function update() {    }
+	public function update() {
+        try {
+            $this->user= User::find($this->request->getParameter('id'))->attributes($this->request->getParameter('user'));
+            if ($this->user->save() === FALSE) {
+                $this->render('edit');
+            } else {
+                $this->flash('notice', $this->user->name . ' updated');
+                $this->redirect_to('index');
+            }
+        } catch (ActiveRecordException $arEx) {
+            $this->logger->warn($arEx->getMessage());
+            $this->flash('error', $arEx->getMessage());
+            $this->redirect_to('index');
+        }
+    }
 
     /**
      * Sterge un utilizator din baza de date
      */ 
-	public function delete() {    }
+	public function delete() {
+        try {
+            $user= User::find($this->request->getParameter('id'));
+            if ($user->delete()===FALSE) {
+                $this->flash('error', 'Cannot delete <em>' . $user->name . '</em>!');
+                return $this->redirect_to('index');
+            }
+            $this->flash('notice', '<em>' . $user->name . '</em> succesfully removed');
+            $this->redirect_to('index');
+        } catch (ActiveRecordException $arEx) {
+            $this->flash('error', $arEx->getMessage());
+            $this->redirect_to('index');
+        }
+    }
 
 }
 
