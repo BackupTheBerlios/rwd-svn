@@ -1,5 +1,5 @@
 --
--- $Id: $
+-- $Id$
 -- 
 -- Database Schema for `medickart`, mysql version
 -- 
@@ -128,18 +128,17 @@ CREATE TABLE `products_authors` (
 -- --------------------------------------------------------
 
 -- 
--- Table structure for table `publishers`
--- 
+-- {{{ Table structure for table `publishers`
 
 CREATE TABLE `publishers` (
-  `id` int(10) unsigned NOT NULL auto_increment,
-  `title` varchar(200) NOT NULL default '',
-  `description` text NOT NULL,
+  `id`          INT     ( 10 )  unsigned NOT NULL auto_increment,
+  `title`       VARCHAR ( 255 )          NOT NULL,
+  `description` TEXT                     NOT NULL,
   PRIMARY KEY  (`id`),
   KEY `title` (`title`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
+-- }}} --------------------------------------------------------
 
 -- 
 -- {{{ Table structure for table `users`
