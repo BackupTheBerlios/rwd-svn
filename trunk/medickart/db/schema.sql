@@ -1,14 +1,15 @@
--- phpMyAdmin SQL Dump
--- version 2.8.0.2
--- http://www.phpmyadmin.net
+--
+-- $Id: $
 -- 
--- Host: localhost
--- Generation Time: Mar 18, 2006 at 05:05 AM
--- Server version: 4.1.16
--- PHP Version: 5.1.2
+-- Database Schema for `medickart`, mysql version
 -- 
--- Database: `medickart`
--- 
+
+SET AUTOCOMMIT=0;
+START TRANSACTION;
+
+DROP DATABASE IF EXISTS `medickart`;
+CREATE DATABASE `medickart`;
+USE `medickart`;
 
 -- --------------------------------------------------------
 
@@ -21,12 +22,7 @@ CREATE TABLE `authors` (
   `first_name` varchar(100) NOT NULL default '',
   `last_name` varchar(100) NOT NULL default '',
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
--- 
--- Dumping data for table `authors`
--- 
-
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -38,12 +34,7 @@ CREATE TABLE `bestsellers` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `product_id` int(10) unsigned NOT NULL default '0',
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
--- 
--- Dumping data for table `bestsellers`
--- 
-
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -57,12 +48,7 @@ CREATE TABLE `categories` (
   `title` varchar(100) NOT NULL default '',
   PRIMARY KEY  (`id`),
   KEY `parent_id` (`parent_id`,`title`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
--- 
--- Dumping data for table `categories`
--- 
-
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -77,12 +63,7 @@ CREATE TABLE `order_details` (
   `product_price` float NOT NULL default '0',
   `ordered_quantity` smallint(6) NOT NULL default '0',
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
--- 
--- Dumping data for table `order_details`
--- 
-
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -104,12 +85,7 @@ CREATE TABLE `orders` (
   `www` varchar(60) NOT NULL default '',
   `created_on` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
--- 
--- Dumping data for table `orders`
--- 
-
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -134,12 +110,7 @@ CREATE TABLE `products` (
   `updated_on` timestamp NOT NULL default '0000-00-00 00:00:00',
   PRIMARY KEY  (`id`),
   KEY `title` (`title`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
--- 
--- Dumping data for table `products`
--- 
-
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -152,12 +123,7 @@ CREATE TABLE `products_authors` (
   `product_id` int(10) unsigned NOT NULL default '0',
   `author_id` int(10) unsigned NOT NULL default '0',
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
--- 
--- Dumping data for table `products_authors`
--- 
-
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -171,27 +137,23 @@ CREATE TABLE `publishers` (
   `description` text NOT NULL,
   PRIMARY KEY  (`id`),
   KEY `title` (`title`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
--- 
--- Dumping data for table `publishers`
--- 
-
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 -- 
--- Table structure for table `users`
--- 
+-- {{{ Table structure for table `users`
 
 CREATE TABLE `users` (
-  `id` int(10) unsigned NOT NULL auto_increment,
-  `username` varchar(16) NOT NULL default '',
-  `password` varchar(32) NOT NULL default '',
+  `id`          INT     ( 10 )  unsigned NOT NULL auto_increment,
+  `username`    VARCHAR ( 255 )          NOT NULL,
+  `password`    VARCHAR ( 32 )           NOT NULL,
+  `email`       VARCHAR ( 255 )          NOT NULL,
+  `last_login`  TIMESTAMP                NOT NULL default CURRENT_TIMESTAMP,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- 
--- Dumping data for table `users`
--- 
+-- }}} --------------------------------------------------------
+
+COMMIT;
 
