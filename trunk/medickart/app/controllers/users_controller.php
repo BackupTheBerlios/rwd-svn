@@ -33,6 +33,7 @@ class UsersController extends ApplicationController {
     public function create() {
         $this->user= new User($this->request->getParameter('user'));
         $this->user->repass = $this->request->getParameter('repass');
+        // $this->logger->debug($this->request->getParameter('user'));
         if ($this->user->save() === FALSE) {
             // reset passwds?
             $this->user->repass=$this->user->pass=NULL;
@@ -56,6 +57,8 @@ class UsersController extends ApplicationController {
 	public function update() {
         try {
             $this->user= User::find($this->request->getParameter('id'))->attributes($this->request->getParameter('user'));
+            // campul virtual, repass trebe sa fie identic cu pass, altfel validarea crapa :(
+            $this->user->repass= $this->user->pass;
             if ($this->user->save() === FALSE) {
                 $this->render('edit');
             } else {

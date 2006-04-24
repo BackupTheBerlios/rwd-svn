@@ -23,7 +23,7 @@ class User extends ActiveRecord {
             $this->row->getFieldByName('name')->addError('should have at least 4 chars.');
         }
         
-        if (strlen($this->pass <= 3)) { // validez daca parola are cel putin 4 caractere
+        if (strlen($this->pass) <= 3) { // validez daca parola are cel putin 4 caractere
             $this->row->getFieldByName('pass')->addError('should have at least 4 chars.');
         }
         
