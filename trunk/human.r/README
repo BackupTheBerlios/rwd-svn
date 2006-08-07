@@ -5,7 +5,9 @@ HUMAN.R a Rails pet-project
 
 What:
 
-  Human Resources Rails Pet-Project
+  Human Resources Rails Pet-Project, somehow based on 
+  "HR Schema on Rails" by by Casimir Saternos published in 
+  June 2006 at Oracle(http://www.oracle.com/technology/pub/articles/saternos-rails.html).
 
 Preq:
 
