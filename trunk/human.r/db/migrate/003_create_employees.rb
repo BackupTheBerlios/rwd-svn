@@ -18,3 +18,4 @@ class CreateEmployees < ActiveRecord::Migration
     drop_table :employees
   end
 end
+

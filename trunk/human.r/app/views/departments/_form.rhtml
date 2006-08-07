@@ -1,0 +1,13 @@
+<%= error_messages_for 'department' %>
+
+<!--[form:department]-->
+
+<p><label for="department_name">Name</label><br/>
+<%= text_field 'department', 'name'  %></p>
+
+<p><label for="department_location">Location</label><br/>
+<%= select("department", "location_id", @locations.collect {|l| [ l, l.id ] }, { :include_blank => true }) %>
+</p>
+
+<!--[eoform:department]-->
+
