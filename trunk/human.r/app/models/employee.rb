@@ -5,17 +5,16 @@ class Employee < ActiveRecord::Base
   belongs_to :department
   belongs_to :job
 
+  def to_s
+    first_name + ' ' + last_name    
+  end
+  
   protected
 
     validates_uniqueness_of :email
+    validates_inclusion_of :salary, :within=> 200..999999
+    validates_presence_of :last_name, :first_name, :email
     validates_length_of :commission, :maximum => 2
-    validates_numericality_of :salary
-
-    validates_each :salary do | record, name, value |
-      if value && (value < 0 || value > 999999)
-        record.errors.add name, "Salary should be a positive number, maximum is 999999!"
-      end
-    end
 
     validate :commission_percent
 

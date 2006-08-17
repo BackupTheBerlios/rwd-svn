@@ -11,8 +11,7 @@ What:
 
 Preq:
 
-  Ruby (1.8.4)
-  Rails (1.1.4)
+  Ruby (www.ruby-lang.org), Rails (www.rubyonrails.com)
   Database server supported by Rails
 
 Install:

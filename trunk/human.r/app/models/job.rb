@@ -6,13 +6,11 @@ class Job < ActiveRecord::Base
 
   protected
     validates_uniqueness_of :title
-    validates_presence_of :title
-    validates_numericality_of :min_salary, :only_integer => true
-    validates_numericality_of :max_salary, :only_integer => true
+    validates_presence_of :title, :min_salary, :max_salary
    
     validates_each :min_salary, :max_salary do | record, name, value |
-      if value && (value < 0 || value > 999999)
-        record.errors.add name, "Salary should be a positive number, maximum allowed is 999999!"
+      if (value && (value.to_s =~ /^[+-]?\d+$/)) && (value.to_i < 0 || value.to_i > 999999)
+        record.errors.add name, "should be a positive number, [0-999999]!"
       end
     end
 
