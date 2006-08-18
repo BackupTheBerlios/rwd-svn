@@ -1,5 +1,9 @@
 $Id$
 
+Proiecte:
+  1) medickart -> shopping cart with medick
+  2) human.r   -> Rails playground
+
 Structura subproiectelor:
 trunk
     \_ nume-proiect1
