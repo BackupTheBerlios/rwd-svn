@@ -1,13 +1,57 @@
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-UK">
 <head>
-  <title>Human.R :: <%= controller.controller_name%>/<%= controller.action_name %></title>
-  <%= stylesheet_link_tag 'scaffold' %>
+  <title>Human.R :: <%= controller.controller_name.singularize.capitalize -%>/<%= controller.action_name -%></title>
+  <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
+  <%= stylesheet_link_tag 'human.r.css' -%>
+  <%= stylesheet_link_tag 'scaffold' -%>
 </head>
 <body>
 
-<p style="color: green"><%= flash[:notice] %></p>
+<div id="content">
 
-<%= @content_for_layout %>
+  <div id="header">
+
+    <div id="title">
+      <h1>Human.R</h1>
+      <h2>Sub.Title</h2>
+    </div>
+
+    <div id="mainMenu">
+      <ul> 
+        <li><%= link_to "Locations", :controller=>'locations'-%></li>
+        <li><%= link_to "Departments", :controller=>'departments'-%></li>
+        <li><%= link_to "Jobs", :controller=>'jobs'-%></li>
+        <li><%= link_to "Employees", :controller=>'employees'-%></li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="page">
+    <p style="color: green"><%= flash[:notice] %></p>
+    <%= yield %>
+  </div>
+
+</div>
+
+<div id="footer">
+
+  <div id="width">
+
+    <span style="float: left">
+      Made by <a href="http://www.locknet.ro">locknet.ro</a>
+    </span>
+
+    <span style="float: right">
+      <%= link_to "Locations", :controller=>'locations'-%> | 
+      <%= link_to "Departments", :controller=>'departments'-%> | 
+      <%= link_to "Jobs", :controller=>'jobs'-%> | 
+      <%= link_to "Employees", :controller=>'employees'-%>
+    </span>
+  </div>
+
+</div>
 
 </body>
 </html>

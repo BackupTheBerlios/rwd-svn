@@ -1,3 +1,6 @@
+#
+# $Id: $
+#
 class DepartmentsController < ApplicationController
   def index
     list
