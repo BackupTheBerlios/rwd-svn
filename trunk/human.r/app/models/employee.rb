@@ -13,8 +13,8 @@ class Employee < ActiveRecord::Base
 
     validates_uniqueness_of :email
     validates_inclusion_of :salary, :within=> 200..999999
+    validates_inclusion_of :commission, :within => 0..200
     validates_presence_of :last_name, :first_name, :email
-    validates_length_of :commission, :maximum => 2
 
     validate :commission_percent
 

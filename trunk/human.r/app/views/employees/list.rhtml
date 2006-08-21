@@ -2,9 +2,11 @@
 
 <table>
   <tr>
-  <% for column in Employee.content_columns %>
-    <th><%= column.human_name %></th>
-  <% end %>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Email</th>
+    <th>Salary</th>
+    <th>Commission</th>
   </tr>
   
 <% for employee in @employees %>

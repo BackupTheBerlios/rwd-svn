@@ -37,12 +37,11 @@ body {
 }
 
 #header {
-  position: relative;
+  /* position: relative; */
 }
 
-/* Holds the site title and subtitle */
 #header #title { 
-  padding: 5px;
+  float:left;
 }
 
 #header h1 {
@@ -55,20 +54,18 @@ body {
 }
 
 #header h2 {
+  color: #F0C000;
   position: absolute;
   top: 40px;
-  left: 115px;
+  left: 215px;
   margin: 0;
   padding: 0;
   font: 700 2em "trebuchet ms", serif;
   text-transform: lowercase;
-  color: #FCC000;
 }
 
 #mainMenu { 
   float: right;
-  width: 100%;
-  clear: both;
   margin: 1em;
 }
 
@@ -91,17 +88,18 @@ body {
   font-size: 1.6em;
   text-decoration: none;
   text-transform: lowercase;
-  color: #6A0202;
+  color: #FCC00B;
 }
 
 #mainMenu li a:hover { 
-  color: #0D0909;
+  color: #FF0909;
 }
 
 #page { 
   float: left;
   width: 100%;
   clear: both;
+  margin-top: 2em;
 }
 
 #page a, #page a:visited {
@@ -114,8 +112,13 @@ body {
 }
 
 #page h1 {
+  /*color:#F98086;*/
+  display:compact;
+  font-size:28px;
+  padding:10px;/* 8px 8px 14px;*/
+  line-height:1em;
+  /*margin:30px 14px 0.25em 0;*/
   background: #FFF url(/images/bkgd_red.gif) top left;
-  height: 40px;
 }
 
 #footer { 
@@ -123,7 +126,6 @@ body {
   width: 100%;
   clear: both;
   margin-top: -3.5em;
-  /*padding-top: 2px;*/
   height: 35px;
   background: #000 url(/images/footer.gif) repeat-x top left;
 }
