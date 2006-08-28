@@ -1,0 +1,65 @@
+"
+" $Id$
+"
+set nocompatible               " use vim features
+set nobackup                   " no backup
+set nowritebackup              " no backup during edit session
+
+set backspace=indent,eol,start " backspace over everything
+
+set tabstop=2     " size of a tab
+set shiftwidth=2  " size for auto/smartindent
+set softtabstop=2 " a tab is this size
+set expandtab     " spaces not tabs
+set smartindent   " indents for you
+set smarttab      " tabs at start of lines
+set autoindent    " always set autoindenting on
+
+set so=7 " 7 lines when scrolling vertically
+set ffs=unix " eol
+
+set showmatch " show matching bracket
+
+set noerrorbells
+set novisualbell
+set vb t_vb= " no bells
+set modeline " show current mode
+set incsearch  " do incremental search
+set history=50 " keep 50 lines in history
+set textwidth=85 " column width is 85
+set wrap " wrap after 80 chars
+set hlsearch   " highlight search word
+set ruler
+
+" set comments+=s:/**,mb:*,el:*/
+
+syntax on
+
+filetype on
+filetype indent on
+filetype plugin on
+
+colors evening
+
+set guifont=Courier\ 10\ Pitch\ 12
+
+" if (&term == 'xterm')
+"    set background=dark
+" endif
+
+hi Todo guifg=Black guibg=#FF7F50
+hi TODO guifg=Black guibg=#FF7F50
+
+" Make shift-insert work like in Xterm
+map <S-Insert> <MiddleMouse>
+map! <S-Insert> <MiddleMouse>
+
+" autocmd FileType ruby set tabstop=2|set shiftwidth=2
+" autocmd FileType rhtml set tabstop=2|set shiftwidth=2
+
+map ,* :s/^\(.*\)$/\/\* \1 \*\//<CR><Esc>:nohlsearch<CR>
+
+imap `d def <def>(   ) <CR><CR>end<UP><UP><right><right><ESC>i
+imap `c class [class] <CR><CR>end<UP><UP><right><right><right><ESC>i
+imap `p <%=   -%><left><left><left><left><ESC>i
+
